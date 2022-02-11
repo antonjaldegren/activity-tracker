@@ -6,8 +6,11 @@
 }
 
 .title {
+	font-size: 1.6rem;
+	max-width: 90%;
 	margin: 0;
 	text-transform: uppercase;
+	overflow: hidden;
 }
 
 .title-container {
@@ -64,4 +67,10 @@
 
 .completed:hover {
 	background: rgb(56, 100, 230);
+}
+
+@media (min-width: 600px) {
+	.title {
+		font-size: 2rem;
+	}
 }
