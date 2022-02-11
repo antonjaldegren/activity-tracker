@@ -6,19 +6,18 @@ import InputBox from "./components/InputBox";
 import ActivityList from "./components/ActivityList";
 
 function App() {
-	const [input, setInput] = useState("");
-	const [activities, setActivities] = useState(() => getActivities() || []);
+	const [activities, setActivities] = useState(() => getActivities());
 
 	//Handle activities:
-	function createActivity() {
+	function createActivity(title) {
+		console.log(title);
 		const newActivity = {
-			title: input,
+			title: title,
 			id: uuidv4(),
 			daysCompleted: [],
 		};
 
 		setActivities((prevActivities) => [...prevActivities, newActivity]);
-		setInput("");
 	}
 
 	function toggleDay(id, day) {
@@ -44,7 +43,7 @@ function App() {
 
 	//Handle local storage:
 	function getActivities() {
-		return JSON.parse(window.localStorage.getItem("myActivities"));
+		return JSON.parse(window.localStorage.getItem("myActivities")) || [];
 	}
 
 	function saveActivities() {
@@ -61,8 +60,6 @@ function App() {
 		<>
 			<MainTitle text="Activity Tracker" />
 			<InputBox
-				input={input}
-				setInput={setInput}
 				createActivity={createActivity}
 				saveActivities={saveActivities}
 				clearActivities={clearActivities}

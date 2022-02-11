@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./InputBox.module.css";
 
 function InputBox(props) {
-	// Parse props
-	const { input, setInput, createActivity, saveActivities, clearActivities } =
-		props;
+	const [input, setInput] = useState("");
+	const { createActivity, saveActivities, clearActivities } = props;
 
 	// Handle events
 	function handleChange(e) {
@@ -12,12 +11,19 @@ function InputBox(props) {
 	}
 
 	function handleKeyPress(e) {
-		e.key === "Enter" && input && createActivity();
+		if (e.key === "Enter" && input) {
+			submitActivity();
+		}
+	}
+
+	function submitActivity() {
+		createActivity(input);
+		setInput("");
 	}
 
 	return (
 		<section className={styles.section}>
-			<div>
+			<div className={styles["input-container"]}>
 				<input
 					className={styles.input}
 					type="text"
@@ -27,7 +33,7 @@ function InputBox(props) {
 				/>
 				<button
 					className={styles.submit}
-					onClick={createActivity}
+					onClick={submitActivity}
 					disabled={!input}
 				>
 					Add activity
