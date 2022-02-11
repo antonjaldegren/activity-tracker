@@ -1,0 +1,10 @@
+.main {
+	max-width: 800px;
+	margin: 0 auto 3em;
+}
+
+.no-added {
+	border-left: 10px solid #00c4a7;
+	padding: 2em;
+	background: #00c4a71c;
+}
