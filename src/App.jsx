@@ -23,7 +23,7 @@ function App() {
 
 	function toggleDay(id, day) {
 		setActivities(
-			activities.map((activity) => {
+			[...activities].map((activity) => {
 				if (activity.id !== id) return activity;
 
 				const index = activity.daysCompleted.indexOf(day);
