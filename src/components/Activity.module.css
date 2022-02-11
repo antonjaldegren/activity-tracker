@@ -7,7 +7,7 @@
 
 .title {
 	margin: 0;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 
 .title-container {
