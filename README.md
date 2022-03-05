@@ -1,3 +1,8 @@
+# activity-tracker
+
+Deployed at: https://antonjaldegren-activitytracker.netlify.app/ \
+Simple activity tracker. Examples of features: add new activity, mark day of the current month as "done", save and remove the list of activities from local storage.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
